@@ -28,5 +28,5 @@ $ php artisan migrate --seed
 ![](https://i.imgur.com/45ryjlP.png)
 > 可以點選「設定初始密碼」來進入新用戶的密碼初始化
 
-![](https://i.imgur.com/45ryjlP.png)
+![](https://i.imgur.com/bsZYtqU.png)
 > 為你的帳戶輸入新密碼並確認
