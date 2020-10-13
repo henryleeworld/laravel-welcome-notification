@@ -1,17 +1,18 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
+use App\Notifications\WelcomeUrlNotification;
+use Carbon\Carbon;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Carbon\Carbon;
-use App\Notifications\WelcomeUrlNotification;
 use Spatie\WelcomeNotification\ReceivesWelcomeNotification;
 
 class User extends Authenticatable
 {
-    use Notifiable, ReceivesWelcomeNotification;
+    use HasFactory, Notifiable, ReceivesWelcomeNotification;
 
     /**
      * The attributes that are mass assignable.
@@ -19,7 +20,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name',
+        'email',
+        'password',
     ];
 
     /**
@@ -28,7 +31,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+        'remember_token',
     ];
 
     /**

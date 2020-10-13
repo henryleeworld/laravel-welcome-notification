@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Auth;
 use Spatie\WelcomeNotification\WelcomeController as BaseWelcomeController;
 use Symfony\Component\HttpFoundation\Response;
 use Carbon\Carbon;
-use App\User;
+use App\Models\User;
 
 class WelcomeController extends BaseWelcomeController
 {
@@ -14,5 +14,10 @@ class WelcomeController extends BaseWelcomeController
         $expiresAt = Carbon::now()->addDay();
         $user = User::find($user);
         $user->sendWelcomeNotification($expiresAt);
+    }
+
+    public function sendPasswordSavedResponse(): Response
+    {
+        return redirect()->route('home');
     }
 }

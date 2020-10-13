@@ -26,7 +26,7 @@ class WelcomeUrlNotification extends WelcomeNotification
     public function buildWelcomeNotificationMessage(): MailMessage
     {
         return (new MailMessage)
-            ->subject('Welcome to my app')
-            ->action(trans('message.set_initial_password'), $this->showWelcomeFormUrl);
+            ->subject(trans('frontend.welcome.notification.title'))
+            ->action(trans('frontend.welcome.notification.content.set_initial_password'), $this->showWelcomeFormUrl);
     }
 }
