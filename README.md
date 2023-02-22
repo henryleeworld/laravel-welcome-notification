@@ -1,4 +1,4 @@
-# Laravel 8 歡迎通知
+# Laravel 10 歡迎通知
 
 引入 spatie 的 laravel-welcome-notification 套件來擴增發送歡迎通知給新用戶，該通知包含指向網站的安全連結，用戶可以在其中設置初始化密碼。
 
@@ -21,12 +21,13 @@ $ php artisan key:generate
 $ php artisan migrate --seed
 ```
 - 在瀏覽器中輸入已定義的路由 URL 來訪問，例如：http://127.0.0.1:8000。
-- 你可以經由 `/welcome/send/{使用者編號，例如：1}` 來進行歡迎通知。
+- 你可以經由 `/register` 來進行註冊。
+- 完成註冊後，可以經由註冊的電子郵件收到歡迎通知，並點選「設定初始密碼」進行一次性初始密碼重置。
 
 ----
 ## 畫面截圖
-![](https://i.imgur.com/PTeAE1d.png)
+![](https://i.imgur.com/PAk151h.png)
 > 可以點選「設定初始密碼」來進入新用戶的密碼初始化
 
-![](https://i.imgur.com/VYbj6PR.png)
+![](https://i.imgur.com/MMDtViv.png)
 > 為你的帳戶輸入新密碼並確認

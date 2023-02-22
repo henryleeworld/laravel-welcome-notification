@@ -1,44 +1,30 @@
-@extends('layouts.app')
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ trans('frontend.welcome.title') }}</div>
-                <div class="card-body">
-                    <form method="POST">
-                        @csrf
-                        <input type="hidden" name="email" value="{{ $user->email }}" />
+<x-guest-layout>
+    <form method="POST">
+        @csrf
+        <input type="hidden" name="email" value="{{ $user->email }}" />
+        <div class="mt-4">
+            <x-input-label for="password" :value="__('Password')" />
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ trans('frontend.welcome.content.password') }}</label>
+            <x-text-input id="password" class="@error('password') is-invalid @enderror block mt-1 w-full"
+                            type="password"
+                            name="password"
+                            required autocomplete="new-password" />
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-                                @error('password')
-                                    <span>
-                                        <strong>{{ $message }}</strong>
-                                    </span> 
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ trans('frontend.welcome.content.confirm_password') }}</label>
-                            <div class="col-md-6">
-                                <input id="password-confirm" class="form-control" type="password" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ trans('frontend.welcome.content.save_password_and_login') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+            <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
-    </div>
-</div>
-@endsection
+        <div class="mt-4">
+            <x-input-label for="password-confirm" :value="__('Confirm Password')" />
+
+            <x-text-input id="password-confirm" class="block mt-1 w-full"
+                            type="password"
+                            name="password_confirmation" required autocomplete="new-password" />
+
+            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+        </div>
+        <div class="flex items-center justify-end mt-4">
+            <x-primary-button class="ml-4" type="submit">
+                {{ __('Save password and login') }}
+            </x-primary-button>
+        </div>
+    </form>
+</x-guest-layout>
