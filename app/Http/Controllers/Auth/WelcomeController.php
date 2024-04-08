@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Symfony\Component\HttpFoundation\Response;
 use Spatie\WelcomeNotification\WelcomeController as BaseWelcomeController;
+use Symfony\Component\HttpFoundation\Response;
 
 class WelcomeController extends BaseWelcomeController
 {

@@ -1,4 +1,4 @@
-# Laravel 10 歡迎通知
+# Laravel 11 歡迎通知
 
 引入 spatie 的 laravel-welcome-notification 套件來擴增發送歡迎通知給新用戶，該通知包含指向網站的安全連結，用戶可以在其中設置初始化密碼。
 
@@ -16,9 +16,17 @@ $ composer install
 ```sh
 $ php artisan key:generate
 ```
-- 執行 __Artisan__ 指令的 __migrate__ 來執行所有未完成的遷移，並執行資料庫填充（如果要測試的話）。
+- 執行 __Artisan__ 指令的 __migrate__ 來執行所有未完成的遷移。
 ```sh
-$ php artisan migrate --seed
+$ php artisan migrate
+```
+- 執行安裝 Vite 和 Laravel 擴充套件引用的依賴項目。
+```sh
+$ npm install
+```
+- 執行正式環境版本化資源管道並編譯。
+```sh
+$ npm run build
 ```
 - 在瀏覽器中輸入已定義的路由 URL 來訪問，例如：http://127.0.0.1:8000。
 - 你可以經由 `/register` 來進行註冊。
@@ -26,8 +34,8 @@ $ php artisan migrate --seed
 
 ----
 ## 畫面截圖
-![](https://i.imgur.com/PAk151h.png)
+![](https://i.imgur.com/cgJDKpA.png)
 > 可以點選「設定初始密碼」來進入新用戶的密碼初始化
 
-![](https://i.imgur.com/MMDtViv.png)
+![](https://i.imgur.com/9DFqvgT.png)
 > 為你的帳戶輸入新密碼並確認
