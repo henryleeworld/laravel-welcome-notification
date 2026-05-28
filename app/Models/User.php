@@ -3,21 +3,25 @@
 namespace App\Models;
 
 use App\Notifications\WelcomeNotification;
-use Carbon\Carbon;
+use App\Observers\UserObserver;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Attributes\ObservedBy;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Carbon;
 use Spatie\WelcomeNotification\ReceivesWelcomeNotification;
 
+#[ObservedBy([UserObserver::class])]
 class User extends Authenticatable
 {
+    /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable, ReceivesWelcomeNotification;
 
     /**
      * The attributes that are mass assignable.
      *
-     * @var array<int, string>
+     * @var list<string>
      */
     protected $fillable = [
         'name',
@@ -28,7 +32,7 @@ class User extends Authenticatable
     /**
      * The attributes that should be hidden for serialization.
      *
-     * @var array<int, string>
+     * @var list<string>
      */
     protected $hidden = [
         'password',

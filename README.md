@@ -1,4 +1,4 @@
-# Laravel 11 歡迎通知
+# Laravel 12 歡迎通知
 
 引入 spatie 的 laravel-welcome-notification 套件來擴增發送歡迎通知給新用戶，該通知包含指向網站的安全連結，用戶可以在其中設置初始化密碼。
 
@@ -38,4 +38,4 @@ $ npm run build
 > 可以點選「設定初始密碼」來進入新用戶的密碼初始化
 
 ![](https://i.imgur.com/9DFqvgT.png)
-> 為你的帳戶輸入新密碼並確認
+> 為你的帳號輸入新密碼並確認
