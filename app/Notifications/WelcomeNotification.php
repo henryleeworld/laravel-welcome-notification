@@ -3,8 +3,9 @@
 namespace App\Notifications;
 
 use Illuminate\Notifications\Messages\MailMessage;
+use Spatie\WelcomeNotification\WelcomeNotification as BaseWelcomeNotification;
 
-class WelcomeNotification extends \Spatie\WelcomeNotification\WelcomeNotification
+class WelcomeNotification extends BaseWelcomeNotification
 {
     protected function buildWelcomeNotificationMessage(): MailMessage
     {

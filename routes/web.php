@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\Auth\WelcomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 use Spatie\WelcomeNotification\WelcomesNewUsers;
 
@@ -10,15 +10,15 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::group(['middleware' => [WelcomesNewUsers::class,]], function () {
-    Route::get('welcome/{user}', [WelcomeController::class, 'showWelcomeForm'])->name('welcome');
-    Route::post('welcome/{user}', [WelcomeController::class, 'savePassword']);
-});
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Route::group(['middleware' => [WelcomesNewUsers::class,]], function () {
+    Route::get('welcome/{user}', [WelcomeController::class, 'showWelcomeForm'])->name('welcome');
+    Route::post('welcome/{user}', [WelcomeController::class, 'savePassword']);
 });
 
 require __DIR__.'/auth.php';

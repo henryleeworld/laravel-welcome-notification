@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers;
 
 use Spatie\WelcomeNotification\WelcomeController as BaseWelcomeController;
 use Symfony\Component\HttpFoundation\Response;
@@ -11,13 +11,4 @@ class WelcomeController extends BaseWelcomeController
     {
         return redirect()->route('dashboard');
     }
-
-    /*
-    public function rules()
-    {
-        return [
-            'password' => 'required|confirmed|min:6',
-        ];
-    }
-    */
 }
